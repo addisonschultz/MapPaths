@@ -1,0 +1,34 @@
+{
+  "routes": [
+    {
+      "weight_name": "routability",
+      "legs": [
+        {
+          "summary": "I 80 East, I 80",
+          "steps": [],
+          "distance": 4541172.5,
+          "duration": 169145,
+          "weight": 169145
+        }
+      ],
+      "geometry": "q|qeFddejV@^jbAoMu@aHpAeh@}LkVwbIsiPaJchAgBkMyiJn^cfcAwaf@}mYub\\wn[exb@}yJsvf@krLslc@ky~BamjCc}|@go|G_hrGm~zHb|oAcrrCuq`Baq}I`rfAaqwD~vCikkJaLsq@mLohy@Joc@jNepArU_w@wd`Dy~aKmvn@ifmNxtEkmiDbq_C}|~F{uFsl}XfjyAqhqIab[sz~MchpAoqpDAuIe`s@ckt@yfQmw|InFq\\iZkj@iv@`MubHuze@reHyssPne@q}@xu]qtbAoxZsvcOoJitvAsf@eLgFgWc|^{zyKrbgAme~Prh@cg`@ovDcbdAdCaPvo@kPbb@lJtaUwgBpv@oVhO{r@|Ge]xl]mewCjqg@gpaAzto@urqAl}iBiggCzwVueyEK_CgAk[uMwSil@s{BoQ{BBrd@pntBmf}CtNmh@bst@kvj@tsOimItfDdo@jiB~_@bgCkmAzvF}nEh}C{`GxNokAKyfCgTAaFw@c@Y{Kcd@wCY",
+      "distance": 4541172.5,
+      "duration": 169145,
+      "weight": 169145
+    }
+  ],
+  "waypoints": [
+    {
+      "distance": 10.389,
+      "name": "McAllister Street",
+      "location": [-122.420021, 37.78009]
+    },
+    {
+      "distance": 7.872,
+      "name": "Logan Circle Northwest",
+      "location": [-77.030052, 38.910057]
+    }
+  ],
+  "code": "Ok",
+  "uuid": "EFyrcnxT8-Yn_EDqcYO-D67YswjcZ20tdiAaf-gM8fRi-G0D75Wubw=="
+}
