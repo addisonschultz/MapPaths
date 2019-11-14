@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Frame } from "framer";
 
 // Map imports
 import ReactMapGL from "react-map-gl";
@@ -41,7 +40,6 @@ export function NavigatorMap(props) {
     getWidth: d => 0.05
   });
 
-  // return <Frame size={"100%"} />;
   return (
     <DeckGL
       initialViewState={state.viewport}

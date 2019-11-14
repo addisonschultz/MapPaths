@@ -13,6 +13,7 @@
 	},
 	"author": "Addison Schultz",
 	"dependencies": {
+		"@framer/benjamin.input": "^1.4.0",
 		"deck.gl": "^7.3.6",
 		"react-map-gl": "^5.1.2"
 	}
