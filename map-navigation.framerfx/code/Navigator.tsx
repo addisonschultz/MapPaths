@@ -5,9 +5,6 @@ import ReactMapGL from "react-map-gl";
 import DeckGL from "@deck.gl/react";
 import { PathLayer } from "@deck.gl/layers";
 
-// Default Props data import
-import * as GeoData from "./directions.json";
-
 export function NavigatorMap(props) {
   const data = [
     {
@@ -58,24 +55,3 @@ export function NavigatorMap(props) {
     </DeckGL>
   );
 }
-
-NavigatorMap.defaultProps = {
-  // @ts-ignore
-  // route: GeoData[0].legs[0].steps[2].intersections.map(x => x.location),
-  route: [
-    [4.899268, 52.377964],
-    [4.89936, 52.377918],
-    [4.898583, 52.377415],
-    [4.898157, 52.377113],
-    [4.894193, 52.374088],
-    [4.893311, 52.374229],
-    [4.892764, 52.374283],
-    [4.891353, 52.374172],
-    [4.8912, 52.374153],
-    [4.890993, 52.374153],
-    [4.89039, 52.373222],
-    [4.889012, 52.373299],
-    [4.888535, 52.373272],
-    [4.888406, 52.372932]
-  ]
-};

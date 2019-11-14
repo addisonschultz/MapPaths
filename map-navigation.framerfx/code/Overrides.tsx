@@ -7,7 +7,7 @@ let mapboxApiAccessToken =
 const data = Data({
   location1: "Stationsplein, 1012 AB Amsterdam",
   location2: "Singel 258, Amsterdam 1016AB",
-  route: []
+  route: [[4.899268, 52.377964]]
 });
 
 // Input 1
@@ -28,13 +28,7 @@ export function To(): Override {
   };
 }
 
-export function Directions(): Override {
-  return {
-    points: data.route
-  };
-}
-
-export function Button(): Override {
+export function SearchButton(): Override {
   return {
     onClick: async () => {
       /**
@@ -68,6 +62,22 @@ export function Button(): Override {
       );
       const response = await directions.json();
       data.route = response.routes[0].geometry.coordinates;
-    }
+    },
+    whileTap: { scale: 0.98 }
+  };
+}
+
+export function ClearButton(): Override {
+  return {
+    onClick: () => {
+      data.route = [[4.899268, 52.377964]];
+    },
+    whileTap: { scale: 0.98 }
+  };
+}
+
+export function Directions(): Override {
+  return {
+    route: data.route
   };
 }
