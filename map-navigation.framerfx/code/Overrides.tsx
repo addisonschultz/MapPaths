@@ -1,60 +1,26 @@
 import * as React from "react";
 import { Override, Data } from "framer";
 
+let mapboxApiAccessToken =
+  "pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ";
+
 const data = Data({
-  location1: "",
-  location2: "",
+  location1: "Stationsplein, 1012 AB Amsterdam",
+  location2: "Singel 258, Amsterdam 1016AB",
   route: []
 });
 
-// const handleClick = React.useCallback(async () => {
-//   /**
-//    * Fetch the first location
-//    */
-//   const location1Response = await fetch(
-//     `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-//       data.location1
-//     )}.json?access_token=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ`
-//   );
-//   const location1Data = await location1Response.json();
-//   const location1Coords = location1Data.features[0].center;
-
-//   /**
-//    * Fetch the second location
-//    */
-//   const location2Response = await fetch(
-//     `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-//       data.location2
-//     )}.json?access_token=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ`
-//   );
-//   const location2Data = await location2Response.json();
-//   const location2Coords = location2Data.features[0].center;
-
-//   /**
-//    * Fetch the directions between the two
-//    */
-//   const directions = await fetch(
-//     `https://api.mapbox.com/directions/v5/mapbox/walking/${location1Coords[0]},${location1Coords[1]};${location2Coords[0]},${location2Coords[1]}\\?geometries=geojson&access_token=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ
-//     `
-//   );
-//   const response = await directions.json();
-//   // For using inside a component
-//   // setRoute(response.routes[0].geometry.coordinates);
-//   data.route = response.routes[0].geometry.coordinates;
-// }, [data.location1, data.location2]);
-
-// For the first input
-export function Input1(props): Override {
+// Input 1
+export function From(props): Override {
   return {
     onValueChange: value => {
       data.location1 = value;
-      console.log(data.location1);
     }
   };
 }
 
-// For the second input
-export function Input2(): Override {
+// Input 2
+export function To(): Override {
   return {
     onValueChange: value => {
       data.location2 = value;
@@ -62,11 +28,46 @@ export function Input2(): Override {
   };
 }
 
+export function Directions(): Override {
+  return {
+    points: data.route
+  };
+}
+
 export function Button(): Override {
   return {
-    onClick: () => {
-      // handleClick();
-      console.log(data.route);
+    onClick: async () => {
+      /**
+       * Fetch location 1 coordinates, and store them in data.location1
+       */
+      const location1Response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          data.location1
+        )}.json?access_token=${mapboxApiAccessToken}`
+      );
+      const location1Data = await location1Response.json();
+      data.location1 = location1Data.features[0].center;
+
+      /**
+       * Fetch location 2 coordinates, and store them in data.location2
+       */
+      const location2Response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          data.location2
+        )}.json?access_token=${mapboxApiAccessToken}`
+      );
+      const location2Data = await location2Response.json();
+      data.location2 = location2Data.features[0].center;
+
+      /**
+       * Fetch directions between the two points, store that in the route
+       */
+      const directions = await fetch(
+        `https://api.mapbox.com/directions/v5/mapbox/walking/${data.location1[0]},${data.location1[1]};${data.location2[0]},${data.location2[1]}\\?geometries=geojson&access_token=${mapboxApiAccessToken}
+        `
+      );
+      const response = await directions.json();
+      data.route = response.routes[0].geometry.coordinates;
     }
   };
 }
