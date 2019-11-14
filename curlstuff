@@ -1,0 +1,29 @@
+
+
+https://api.mapbox.com/geocoding/v5/mapbox.places/{location1}.json?access_token=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ
+
+
+
+https://api.mapbox.com/geocoding/v5/mapbox.places/{location2}.json?access_token=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ
+
+
+
+curl https://api.mapbox.com/directions/v5/mapbox/driving/{long1,lat2}\;{long2,lat2}\?access_token\=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ
+
+
+
+
+
+
+
+
+-122.42,37.78\;-77.03,38.91
+
+
+
+
+
+https://api.mapbox.com/geocoding/v5/mapbox.places/milwaukee.json?access_token=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ
+
+
+curl https://api.mapbox.com/directions/v5/mapbox/driving/${location1Coords[0]},${location1Coords[1]};${location2Coords[0]},${location2Coords[1]}\\?access_token\\=pk.eyJ1IjoiYWRkaXNvbnNjaHVsdHoiLCJhIjoiY2p1YXpsMWxxMDBvejQ0cGRqNm5yZDh4aSJ9.-nkTtj1EUib3G4L1oqMaTQ
