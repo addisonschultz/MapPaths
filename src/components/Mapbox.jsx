@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactMapGL from "react-map-gl";
 
 import DeckGL from "@deck.gl/react";
-import { PathLayer, TextLayer } from "@deck.gl/layers";
+import { PathLayer } from "@deck.gl/layers";
 
 import * as GeoData from "../data/directions.json";
 
