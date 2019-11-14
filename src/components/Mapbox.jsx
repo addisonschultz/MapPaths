@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactMapGL from "react-map-gl";
 
 import DeckGL from "@deck.gl/react";
-import { PathLayer } from "@deck.gl/layers";
+import { PathLayer, TextLayer } from "@deck.gl/layers";
 
 import * as GeoData from "../data/directions.json";
 
@@ -21,10 +21,11 @@ function Mapbox(props) {
       height: 700,
       latitude: 52.3667,
       longitude: 4.8945,
-      zoom: 13
+      zoom: 12
     }
   });
 
+  // Path
   const layer = new PathLayer({
     id: "path-layer",
     data,
